@@ -1,12 +1,14 @@
+import os
+
 class Reader:
-    def read_all(self, file):
-        file.read()
+    def read_all(self, path):
+        with open(path, 'r') as f:
+            return f.read()
 
     
-    def add_sth(self, file, new_line):
-        with open(str(file), 'a') as f:
+    def add_sth(self, path, new_line):
+        with open(path, 'a') as f:
             f.write(new_line)
     
-    def delete(self, file):
-        with open(str(file), 'w') as f:
-            f.write('')
+    def delete(self, path):
+        os.remove(path)
